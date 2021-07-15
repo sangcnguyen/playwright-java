@@ -22,4 +22,4 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
     - name: Test with Maven
-      run: mvn clean test -DsuiteXmlFile=testsuites\all-testcases.xml
+      run: mvn clean test -DsuiteXmlFile=testsuites\/all-testcases.xml
