@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite thread-count="1" verbose="1" name="All test cases" annotations="JDK">
+    <test name="All classes">
+        <classes>
+            <class name="testcases.DynamicLoadingTest"/>
+        </classes>
+    </test>
+</suite>

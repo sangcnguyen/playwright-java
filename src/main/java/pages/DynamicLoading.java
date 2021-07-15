@@ -1,3 +1,5 @@
+package pages;
+
 import com.microsoft.playwright.Page;
 
 public class DynamicLoading {
@@ -17,11 +19,11 @@ public class DynamicLoading {
         page.navigate("https://the-internet.herokuapp.com/dynamic_loading");
     }
 
-    public void clickDynamicLoading1() {
+    public void clickDynamicLoadingLink1() {
         page.click(locator_dynamic_link_1);
     }
 
-    public void clickDynamicLoading2() {
+    public void clickDynamicLoadingLink2() {
         page.click(locator_dynamic_link_2);
     }
 
