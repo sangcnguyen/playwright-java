@@ -3,6 +3,7 @@
     <test name="All classes">
         <classes>
             <class name="testcases.DynamicLoadingTest"/>
+            <class name="testcases.UploadTest"/>
         </classes>
     </test>
 </suite>
