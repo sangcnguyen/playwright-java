@@ -2,6 +2,7 @@ package pages;
 
 import com.microsoft.playwright.Page;
 
+import javax.inject.Inject;
 import java.nio.file.Paths;
 
 public class UploadPage {
@@ -11,6 +12,7 @@ public class UploadPage {
     private final String LOCATOR_FILE_SUBMIT = "#file-submit";
     private final String LOCATOR_SUCCESS_MESSAGE = "#uploaded-files";
 
+    @Inject
     public UploadPage(Page page) {
         this.page = page;
     }

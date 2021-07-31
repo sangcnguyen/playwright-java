@@ -2,6 +2,8 @@ package pages;
 
 import com.microsoft.playwright.Page;
 
+import javax.inject.Inject;
+
 public class DynamicLoadingPage {
     private final Page page;
 
@@ -10,7 +12,7 @@ public class DynamicLoadingPage {
     private final String LOCATOR_START_BUTTON = "text=Start";
     private final String LOCATOR_VISIBLE_TEXT = "div[id='finish'] h4";
 
-
+    @Inject
     public DynamicLoadingPage(Page page) {
         this.page = page;
     }
