@@ -15,7 +15,7 @@ public class FirefoxContext extends AbstractBrowser{
                 .setViewportSize(1920, 1080)
                 .setRecordVideoDir(videoPath)
                 .setRecordVideoSize(1920, 1080);
-        browser = Playwright.create().firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browser = Playwright.create().firefox().launch(new BrowserType.LaunchOptions().setHeadless(true));
         context = browser.newContext(contextOptions);
         page = context.newPage();
         return page;
