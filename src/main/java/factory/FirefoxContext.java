@@ -7,7 +7,7 @@ import com.microsoft.playwright.Playwright;
 
 import java.nio.file.Paths;
 
-public class ChromeContext extends AbstractBrowser {
+public class FirefoxContext extends AbstractBrowser{
     @Override
     public Page startService() {
         var videoPath = Paths.get("videos/");
@@ -15,7 +15,7 @@ public class ChromeContext extends AbstractBrowser {
                 .setViewportSize(1920, 1080)
                 .setRecordVideoDir(videoPath)
                 .setRecordVideoSize(1920, 1080);
-        browser = Playwright.create().chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        browser = Playwright.create().firefox().launch(new BrowserType.LaunchOptions().setHeadless(false));
         context = browser.newContext(contextOptions);
         page = context.newPage();
         return page;

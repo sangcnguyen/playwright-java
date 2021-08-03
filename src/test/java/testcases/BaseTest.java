@@ -1,41 +1,33 @@
 package testcases;
 
-import com.google.inject.Inject;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.microsoft.playwright.Page;
 import factory.BrowserFactory;
-import factory.BrowserManager;
 import factory.BrowserType;
+import factory.PageThreadLocal;
+import module.PageModule;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import pages.DynamicLoadingPage;
+import pages.UploadPage;
 
 public abstract class BaseTest {
-    public Page page;
-    //    private Browser browser;
-//    private BrowserContext context;
-    @Inject
-    BrowserManager browserManager;
+    Page page;
+    DynamicLoadingPage dynamicLoadingPage;
+    UploadPage uploadPage;
 
     @BeforeClass
     public void setUp() {
-//        var videoPath = Paths.get("videos/");
-//        var contextOptions = new Browser.NewContextOptions()
-//                .setViewportSize(1920, 1080)
-//                .setRecordVideoDir(videoPath)
-//                .setRecordVideoSize(1920, 1080);
-//        browser = Playwright
-//                .create()
-//                .chromium()
-//                .launch(new BrowserType.LaunchOptions().setHeadless(true));
-//        context = browser.newContext(contextOptions);
-//        page = context.newPage();
-//        browserManager = BrowserFactory.getBrowserInstance(BrowserType.CHROME);
-
-
-        browserManager.getPageInstance();
+        page = BrowserFactory.createInstance(BrowserType.FIREFOX);
+        PageThreadLocal.setPage(page);
+        Injector injector = Guice.createInjector(new PageModule());
+        dynamicLoadingPage = injector.getInstance(DynamicLoadingPage.class);
+        uploadPage = injector.getInstance(UploadPage.class);
     }
 
     @AfterClass
-    public void tearDown() {
-        browserManager.closePageInstance();
+    public void closeBrowser() {
+        PageThreadLocal.closePage();
     }
 }
