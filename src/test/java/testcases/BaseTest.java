@@ -19,7 +19,7 @@ public abstract class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        page = BrowserFactory.createInstance(BrowserType.FIREFOX);
+        page = BrowserFactory.createInstance(BrowserType.CHROMIUM);
         PageThreadLocal.setPage(page);
         Injector injector = Guice.createInjector(new PageModule());
         dynamicLoadingPage = injector.getInstance(DynamicLoadingPage.class);

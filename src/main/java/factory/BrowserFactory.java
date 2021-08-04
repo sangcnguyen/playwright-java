@@ -9,8 +9,8 @@ public class BrowserFactory {
     public static Page createInstance(BrowserType browserType) {
         Page page = null;
         switch (browserType) {
-            case CHROME:
-                page = new ChromeContext().startService();
+            case CHROMIUM:
+                page = new ChromiumContext().startService();
                 break;
             case FIREFOX:
                 page = new FirefoxContext().startService();

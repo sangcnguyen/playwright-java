@@ -7,7 +7,7 @@ import com.microsoft.playwright.Playwright;
 
 import java.nio.file.Paths;
 
-public class ChromeContext extends AbstractBrowser {
+public class ChromiumContext extends AbstractBrowser {
     @Override
     public Page startService() {
         var videoPath = Paths.get("videos/");
